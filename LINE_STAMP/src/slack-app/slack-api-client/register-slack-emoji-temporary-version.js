@@ -1,6 +1,7 @@
 const { Builder, By, Key, until } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");
 const path = require("path");
+const os = require("os");
 require("dotenv").config();
 
 // formのidのプレフィックス
@@ -59,13 +60,18 @@ async function registerAllLineStampsToSlack(
 async function buildSeleniumDriver() {
   // ヘッドレスモードのオプションを設定
   const options = new chrome.Options();
-  options.headless();
+  options.addArguments("--headless");
 
   // ヘッドレスモードでChromeを起動
-  return await new Builder()
-    .forBrowser("chrome")
-    .setChromeOptions(options)
-    .build();
+  const builder = new Builder().forBrowser("chrome").setChromeOptions(options);
+
+  // Linux（らずぱい）の場合はChromeDriverのパスを指定
+  if (os.platform() === "linux") {
+    builder.setChromeService(
+      new chrome.ServiceBuilder("/usr/bin/chromedriver")
+    );
+  }
+  return builder.build();
 }
 
 // Slackにサインインする関数
