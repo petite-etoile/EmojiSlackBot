@@ -4,7 +4,7 @@
   "description": "LINE のスタンプストアの URL を入力すると、LINE のスタンプを SLACK の絵文字に登録する API LINE のスタンプストアの URL 例：https://store.line.me/stickershop/product/24945321/ja",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "background": "nohup node src/index.js >> node.log &"
   },
   "repository": {
     "type": "git",
