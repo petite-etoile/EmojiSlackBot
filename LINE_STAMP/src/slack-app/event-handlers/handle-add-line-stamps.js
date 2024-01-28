@@ -1,9 +1,13 @@
 const { saveLineStamps } = require("@utils/line-stamp-util");
-const registerAllLineStampsToSlack = require("@slack-app/slack-api-client/register-slack-emoji");
+// const registerAllLineStampsToSlack = require("@slack-app/slack-api-client/register-slack-emoji");
+const registerAllLineStampsToSlack = require("@slack-app/slack-api-client/register-slack-emoji-temporary-version");
 const { convertResultsToString } = require("@utils/json-converter");
 const {
   validateAddLineStampCommandArgs,
 } = require("@utils/validator/command-args-validator");
+
+require("dotenv").config();
+const targetChannelName = process.env.LINESTAMP_CHANNEL_NAME;
 
 /**
  * /add-line-stampコマンドを叩かれたら呼ばれる関数
@@ -22,6 +26,13 @@ async function handleAddLineStampCommand(ack, command, say) {
     "\n\n============================ handle Add Line Stamp Command ============================\n"
   );
   console.log(command);
+
+  // devチャンネルと本番チャンネルで分けて実行するための場合わけ
+  if (command.channel_name !== targetChannelName) {
+    console.log("対象のチャンネルでのコマンドじゃないのでスルーします");
+    console.log("対象のチャンネル: " + targetChannelName);
+    return;
+  }
 
   try {
     // コマンドを受け取ったことを確認
