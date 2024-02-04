@@ -1,10 +1,10 @@
 const path = require("path");
-const buildSeleniumDriver = require("@utils/slack-api-client/setup-selenium");
-const signInToSlack = require("@utils/slack-api-client/signin-to-slack");
+const buildSeleniumDriver = require("@utils/register-emoji/setup-selenium");
+const signInToSlack = require("@utils/register-emoji/signin-to-slack");
 const {
-  registerOneLineStampToSlack,
+  registerSlackEmoji,
   insertUploadForm,
-} = require("@utils/slack-api-client/register-emoji");
+} = require("@utils/register-emoji/register-emoji");
 
 /**
  * LINEスタンプをSlack絵文字として登録する関数
@@ -35,7 +35,7 @@ async function registerAllLineStampsToSlack(
         const emojiName = `${emojiNamePrefix}_${idx}`;
         const stampsAbsoluteFilePath = path.resolve(stampsFilePath);
 
-        return registerOneLineStampToSlack(
+        return registerSlackEmoji(
           driver,
           emojiName,
           stampsAbsoluteFilePath,
