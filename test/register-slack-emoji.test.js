@@ -1,7 +1,5 @@
 const getCookieAndToken = require("utils/register-emoji/get-token-and-cookie");
-const {
-  registerSlackEmojiByTokenAndCookie,
-} = require("utils/register-emoji/register-emoji");
+const registerSlackEmojiByTokenAndCookie = require("utils/register-emoji/register-emoji-by-token-and-cookie");
 
 /**
  * slack絵文字をtokenとcookieを使って登録するテスト
