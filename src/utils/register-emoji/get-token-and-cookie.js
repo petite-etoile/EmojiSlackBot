@@ -1,3 +1,6 @@
+const buildSeleniumDriver = require("./setup-selenium");
+const signInToSlack = require("./signin-to-slack");
+
 /**
  * Seleniumを使ってサインインしてCookieとAPIトークンを取得する関数.
  * @returns {Promise<object>} - CookieとAPIトークン
