@@ -1,4 +1,8 @@
 const { By } = require("selenium-webdriver");
+const fs = require("fs");
+const FormData = require("form-data");
+const axios = require("axios");
+
 // formのidのプレフィックス
 const uploadFormIdPrefix = "petit_upload_form";
 const emojiNameInputIdPrefix = "petit_emoji_name_input";
