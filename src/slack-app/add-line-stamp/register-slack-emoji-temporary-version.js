@@ -1,10 +1,10 @@
 const path = require("path");
-const buildSeleniumDriver = require("../../utils/slack-api-client/setup-selenium");
-const signInToSlack = require("../../utils/slack-api-client/signin-to-slack");
+const buildSeleniumDriver = require("@utils/slack-api-client/setup-selenium");
+const signInToSlack = require("@utils/slack-api-client/signin-to-slack");
 const {
   registerOneLineStampToSlack,
   insertUploadForm,
-} = require("../../utils/slack-api-client/register-emoji");
+} = require("@utils/slack-api-client/register-emoji");
 
 /**
  * LINEスタンプをSlack絵文字として登録する関数

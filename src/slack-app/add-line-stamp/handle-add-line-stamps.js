@@ -1,6 +1,6 @@
 const { saveLineStamps } = require("@utils/line-stamp-util");
-// const registerAllLineStampsToSlack = require("@slack-app/slack-api-client/register-slack-emoji");
-const registerAllLineStampsToSlack = require("@slack-app/slack-api-client/register-slack-emoji-temporary-version");
+// const registerAllLineStampsToSlack = require("@slack-app/add-line-stamp/register-slack-emoji");
+const registerAllLineStampsToSlack = require("@slack-app/add-line-stamp/register-slack-emoji-temporary-version");
 const { convertResultsToString } = require("@utils/json-converter");
 const {
   validateAddLineStampCommandArgs,
