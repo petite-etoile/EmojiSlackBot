@@ -1,6 +1,6 @@
 const { App } = require("@slack/bolt");
 
-const handleAddLineStampCommand = require("@slack-app/event-handlers/handle-add-line-stamps");
+const handleAddLineStampCommand = require("@slack-app/add-line-stamp/handle-add-line-stamps");
 require("dotenv").config();
 
 class SlackApp {
